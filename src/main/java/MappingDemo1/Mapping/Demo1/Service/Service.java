@@ -43,4 +43,25 @@ public class Service {
         return passportRepository.findAll();
     }
 
+       public Person getPersonDataById(int id){
+        return personRepository.getPersonObject(id);
+       }
+
+       public void updatePassportCountry(int pId , String country){
+        Person p = personRepository.getPersonObject(pId);
+        Passport pass = p.getPassRef();
+
+        pass.setCountry(country);
+        personRepository.save(p);
+       }
+
+       public void deleteById(int pId){
+       Person person= personRepository.getPersonObject(pId);
+       Passport passport = person.getPassRef();
+
+       personRepository.deleteById(pId);
+       passportRepository.deleteById(passport.getPassportId());
+
+       }
+
 }

@@ -24,8 +24,5 @@ public class Passport {
     @Column(name = "country")
     private String country;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "person_info")
-//    private Person personInfo;
 
 }

@@ -5,13 +5,9 @@ import MappingDemo1.Mapping.Demo1.Model.Person;
 import MappingDemo1.Mapping.Demo1.Payload.PersonPassport;
 import MappingDemo1.Mapping.Demo1.Service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.PriorityQueue;
 
 @RestController
 public class PersonPassportController {
@@ -30,5 +26,18 @@ public class PersonPassportController {
     @GetMapping("/getPassportInfo")
     public List<Passport> getPassportInfo(){
         return service.getPassportInfo();
+    }
+    @GetMapping("/getPersonObject")
+    public Person getPersonObject(@RequestParam("id") int id){
+      return  service.getPersonDataById(id);
+    }
+    @PutMapping("/updatePassportCountry/{pId}/{country}")
+    public void updatePassportCountry(@PathVariable int pId ,@PathVariable String country){
+        service.updatePassportCountry(pId,country);
+
+    }
+    @DeleteMapping("/deleteById/{perId}")
+    public void deleteById(@PathVariable(name = "perId") int id ){
+        service.deleteById(id);
     }
 }

@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>MappingDemo1</groupId>
-	<artifactId>Mapping-Demo1</artifactId>
+	<artifactId>spring-boot-one-to-one-person-passport</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Mapping-Demo1</name>
 	<description>Demo project for Spring Boot</description>
